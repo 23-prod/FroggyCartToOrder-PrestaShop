@@ -1,0 +1,10 @@
+{
+	"tab" : "front_office_features",
+	"version": "1.0.0",
+	"need_instance": 0,
+
+    "sql" : {
+        "install" : [ "install.sql" ],
+        "uninstall" : [ "uninstall.sql" ]
+    }
+}
