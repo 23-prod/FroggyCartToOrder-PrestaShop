@@ -17,6 +17,24 @@
  *  @copyright  2013-2014 Froggy Commerce
  */
 
+
+function froggyCartOrderShowStep(box_id, field_to_check)
+{
+    // Set flag
+    var display_flag = false;
+    if (field_to_check == 'payment_method' && ($('#'+field_to_check).val() != '' || $('#'+field_to_check+'_manual').val() != ''))
+        display_flag = true;
+    else if (field_to_check != 'payment_method' && ($('#'+field_to_check).val() > 0 || $('#'+field_to_check+'_manual').val() > 0))
+        display_flag = true;
+
+    // Display box depending on flag
+    if (display_flag)
+        $('#'+box_id+'_box').fadeIn();
+    else
+        $('#'+box_id+'_box').fadeOut();
+}
+
+
 function froggyCartOrderSelection()
 {
     // Reset style
@@ -39,6 +57,9 @@ function froggyCartOrderSelection()
         // Set cart
         $('#id_cart_manual').val(value);
 
+        // Show step 2
+        froggyCartOrderShowStep('payment_method', 'id_cart');
+
         return false;
     });
 }
@@ -46,6 +67,22 @@ function froggyCartOrderSelection()
 var email_froggy_cart_order;
 
 $(document).ready(function() {
+
+
+    // Hide steps
+    $('#payment_method_box').hide();
+    $('#order_state_box').hide();
+    $('#convert_cart_box').hide();
+
+
+
+    // Cart selection
+    $('#id_cart').change(function() {
+        froggyCartOrderShowStep('payment_method', 'id_cart');
+    });
+
+
+    // Retrieve cart from customer email
     $('#customer_email').keyup(function() {
 
         // Retrieve email
@@ -82,6 +119,26 @@ $(document).ready(function() {
             });
         }
 
+        // Show step 2
+        froggyCartOrderShowStep('payment_method', 'id_cart');
+
         return false;
     });
+
+
+    // Payment method selection
+    $('#payment_method').change(function() {
+        froggyCartOrderShowStep('order_state', 'payment_method');
+    });
+    $('#payment_method_manual').keyup(function() {
+        froggyCartOrderShowStep('order_state', 'payment_method');
+    });
+
+
+    // Order state selection
+    $('#id_order_state').change(function() {
+        froggyCartOrderShowStep('convert_cart', 'id_order_state');
+    });
+
+
 });

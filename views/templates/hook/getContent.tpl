@@ -33,13 +33,16 @@
     {else}
         <div id="froggycartorder_admin">
             <form method="POST" action="">
+
+                <h3>1. {l s='Select cart'}</h3>
                 <label>{l s='Choose the cart' mod='froggycartorder'}</label>
                 <div>
                     <select name="id_cart" id="id_cart">
+                        <option value="0">{l s='- Choose between the 50 last carts -'}</option>
                         {foreach from=$froggycartorder.last_carts item=c}
                             <option value="{$c.id_cart}">#{$c.id_cart} - {$c.customer} - {$c.total}</option>
                         {/foreach}
-                    </select> ({l s='Only the' mod='froggycartorder'} <b>{$froggycartorder.cart_limit}</b> {l s='last carts are displayed in this list' mod='froggycartorder'})
+                    </select>
                 </div><br>
                 <label>{l s='Or enter the customer e-mail' mod='froggycartorder'}</label>
                 <div>
@@ -50,29 +53,40 @@
 
                 <br><br>
 
-                <label>{l s='Choose the payment method' mod='froggycartorder'}</label>
-                <div>
-                    <select name="payment_method">
-                    {foreach from=$froggycartorder.available_payment_methods item=apm}
-                        <option value="{$apm.payment}">{$apm.payment}</option>
-                    {/foreach}
-                    </select>
-                </div><br>
-                <label>{l s='Or write your payment method' mod='froggycartorder'}</label>
-                <div><input type="text" name="payment_method_manual" /></div>
+                <div id="payment_method_box">
+                    <h3>2. {l s='Select payment method'}</h3>
+                    <label>{l s='Choose the payment method' mod='froggycartorder'}</label>
+                    <div>
+                        <select name="payment_method" id="payment_method">
+                            <option value="">{l s='- Choose the payment method -'}</option>
+                            {foreach from=$froggycartorder.available_payment_methods item=apm}
+                                <option value="{$apm.payment}">{$apm.payment}</option>
+                            {/foreach}
+                        </select>
+                    </div><br>
+                    <label>{l s='Or write your payment method' mod='froggycartorder'}</label>
+                    <div><input type="text" name="payment_method_manual" id="payment_method_manual" /></div>
+                </div>
 
                 <br><br>
 
-                <label>{l s='Choose the order status' mod='froggycartorder'}</label>
-                <div>
-                    <select name="id_order_state">
-                    {foreach from=$froggycartorder.order_state_list item=os}
-                        <option value="{$os.id_order_state}">{$os.name}</option>
-                    {/foreach}
-                    </select>
-                </div><br>
+                <div id="order_state_box">
+                    <h3>3. {l s='Select order state'}</h3>
+                    <label>{l s='Choose the order status' mod='froggycartorder'}</label>
+                    <div>
+                        <select name="id_order_state" id="id_order_state">
+                            <option value="0">{l s='- Choose the order state -'}</option>
+                            {foreach from=$froggycartorder.order_state_list item=os}
+                                <option value="{$os.id_order_state}">{$os.name}</option>
+                            {/foreach}
+                        </select>
+                    </div><br>
+                </div>
 
-                <p align="center"><input type="submit" value="{l s='Convert' mod='froggycartorder'}" name="froggycartorder_form" class="button" /></p>
+                <div id="convert_cart_box">
+                    <h3>4. {l s='Convert cart to order'}</h3>
+                    <label><input type="submit" value="{l s='Convert' mod='froggycartorder'}" name="froggycartorder_form" class="button" /></label>
+                </div>
             </form>
         </div>
     {/if}
