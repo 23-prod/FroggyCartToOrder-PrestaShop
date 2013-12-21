@@ -34,35 +34,29 @@
         <div id="froggycartorder_admin">
             <form method="POST" action="">
                 <label>{l s='Choose the cart' mod='froggycartorder'}</label>
-                <div>
+                <div class="margin-form">
                     <select name="id_cart" id="id_cart">
                         {foreach from=$froggycartorder.last_carts item=c}
                             <option value="{$c.id_cart}">#{$c.id_cart} - {$c.customer} - {$c.total}</option>
                         {/foreach}
                     </select> ({l s='Only the' mod='froggycartorder'} <b>{$froggycartorder.cart_limit}</b> {l s='last carts are displayed in this list' mod='froggycartorder'})
-                </div><br>
+                </div>
                 <label>{l s='Or enter the customer e-mail' mod='froggycartorder'}</label>
-                <div>
+                <div class="margin-form">
                     <input type="text" name="customer_email" id="customer_email" />
                     <input type="hidden" name="id_cart_manual" id="id_cart_manual" value="" />
                     <div id="customer_carts_list"></div>
                 </div>
-
-                <br><br>
-
                 <label>{l s='Choose the payment method' mod='froggycartorder'}</label>
-                <div>
+                <div class="margin-form">
                     <select name="payment_method">
                     {foreach from=$froggycartorder.available_payment_methods item=apm}
                         <option value="{$apm.payment}">{$apm.payment}</option>
                     {/foreach}
                     </select>
-                </div><br>
+                </div>
                 <label>{l s='Or write your payment method' mod='froggycartorder'}</label>
-                <div><input type="text" name="payment_method_manual" /></div>
-
-                <br><br>
-
+                <div class="margin-form"><input type="text" name="payment_method_manual" /></div>
                 <label>{l s='Choose the order status' mod='froggycartorder'}</label>
                 <div>
                     <select name="id_order_state">
