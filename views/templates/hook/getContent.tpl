@@ -16,7 +16,14 @@
 *  @author Froggy Commerce <contact@froggy-commerce.com>
 *  @copyright  2013-2014 Froggy Commerce
 *}
-
+{literal}
+<style type="text/css">
+#froggycartorder_admin #customer_carts_list{width:50%;padding:1%;margin-top:10px;border:1px solid #ccc;background-color:#fff}
+#froggycartorder_admin .cart-selection{display:block;height:15px;line-height:15px;width:95%;padding:3px 5% 3px 0;margin:2px 0}
+#froggycartorder_admin .cart-selection:hover{background:#EBEDF4 url(../modules/froggycartorder/views/img/fc-carttoorder-arrow-right.png) 98% center no-repeat}
+#froggycartorder_admin .cart-selection span{margin-left:10px}
+</style>
+{/literal}
 <h2 align="center">{l s='Froggy Cart to Order' mod='froggycartorder'}</h2>
 
 <fieldset id="froggycartorder_fieldset">

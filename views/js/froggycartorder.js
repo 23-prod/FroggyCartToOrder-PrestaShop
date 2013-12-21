@@ -108,7 +108,7 @@ $(document).ready(function() {
                 // Build carts list
                 var html = '';
                 $.each(obj, function(key, val) {
-                    html += '<a class="cart-selection" href="#'+val.id_cart+'">#'+val.id_cart+' - '+val.customer+' - '+val.total+'</a><br>';
+                    html += '<a class="cart-selection" href="#'+val.id_cart+'"><span>#'+val.id_cart+' - '+val.customer+' - '+val.total+'</span></a>';
                 });
 
                 // Display carts list
