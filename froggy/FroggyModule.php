@@ -58,6 +58,31 @@ class FroggyModule extends Module
 	}
 
 	/**
+	 * @param $method
+	 * @param $args
+	 * @return null
+	 */
+	public function __call($method, $args)
+	{
+		// Build name of class
+		$processor_classname = get_class($this).ucfirst($method).'Processor';
+		$processor_class_path = $this->local_path.'/hooks/'.$processor_classname.'.php';
+
+		// Check if processor class exists
+		if (file_exists($processor_class_path)) {
+			require $processor_class_path;
+			if (class_exists($processor_classname) && $processor_classname instanceof FroggyHookProcessorInterface) {
+				$processor = new $processor_classname($this, $args);
+				return $processor->run();
+			} else {
+				// If processor class not implement interface
+				throw new Exception('Hook processor cannot be used !');
+			}
+		}
+		return null;
+	}
+
+	/**
 	 * Method for module installation
 	 *
 	 * @return bool
@@ -278,7 +303,20 @@ class FroggyModule extends Module
 	 */
 	public function getModuleConfigurations()
 	{
-		return Configuration::getMultiple($this->getModuleConfigurationsKeys());
+		$configurations = array();
+		$languages = Language::getLanguages(false);
+
+		foreach ($this->getModuleConfigurationsKeys() as $key) {
+			if (Configuration::isLangKey($key)) {
+				foreach ($languages as $lang) {
+					$configurations[$key][$lang['id_lang']] = Configuration::get($key, $lang['id_lang']);
+				}
+			} else {
+				$configurations[$key] = Configuration::get($key);
+			}
+		}
+
+		return $configurations;
 	}
 
 	/**
@@ -336,5 +374,20 @@ class FroggyDefinitionsModuleParser
 
 		return $definitions;
 	}
+
+}
+
+interface FroggyHookProcessorInterface
+{
+
+	/**
+	 * @param FroggyModule $module
+	 */
+	public function __construct(FroggyModule $module, array $args);
+
+	/**
+	 * @return mixed
+	 */
+	public function run();
 
 }
