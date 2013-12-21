@@ -87,11 +87,11 @@ class FroggyCartOrder extends FroggyModule
 			return '';
 
 		// Context
-		$amount_paid = Cart::getOrderTotalUsingTaxCalculationMethod($id_cart);
 		$context = Context::getContext();
 		$context->cart = new Cart($id_cart);
 		$context->currency = new Currency((int)$context->cart->id_currency);
 		$context->customer = new Customer((int)$context->cart->id_customer);
+		$amount_paid = $context->cart->getOrderTotal();
 
 		// Load payment class
 		$payment_module = new FroggyCartOrderPaymentModule();
