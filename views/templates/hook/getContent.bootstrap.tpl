@@ -16,8 +16,15 @@
 *  @author Froggy Commerce <contact@froggy-commerce.com>
 *  @copyright  2013-2014 Froggy Commerce
 *}
-
-<h2 align="center">{l s='Froggy Cart to Order' mod='froggycartorder'} BOOTSTRAP</h2>
+{literal}
+<style type="text/css">
+#froggycartorder_admin #customer_carts_list{width:50%;padding:1%;margin-top:10px;border:1px solid #ccc;background-color:#fff;-moz-border-radius:3px;-webkit-border-radius:3px;border-radius:3px}
+#froggycartorder_admin .cart-selection{display:block;height:24px;line-height:24px;padding:3px 5% 3px 0;margin:2px 0}
+#froggycartorder_admin .cart-selection:hover{background:#FEFBE2 url(../modules/froggycartorder/views/img/fc-carttoorder-arrow-right.png) 98% center no-repeat;text-decoration: none}
+#froggycartorder_admin .cart-selection span{margin-left:10px}
+</style>
+{/literal}
+<h2 align="center">{l s='Froggy Cart to Order Bootstrap' mod='froggycartorder'}</h2>
 
 <fieldset id="froggycartorder_fieldset">
 
@@ -31,48 +38,70 @@
         {/if}
         <p align="center"><a href="{$froggycartorder.current_url}">{l s='Return'}</a></p>
     {else}
-        <div id="froggycartorder_admin">
-            <form method="POST" action="">
-                <label>{l s='Choose the cart' mod='froggycartorder'}</label>
-                <div>
-                    <select name="id_cart" id="id_cart">
-                        {foreach from=$froggycartorder.last_carts item=c}
-                            <option value="{$c.id_cart}">#{$c.id_cart} - {$c.customer} - {$c.total}</option>
-                        {/foreach}
-                    </select> ({l s='Only the' mod='froggycartorder'} <b>{$froggycartorder.cart_limit}</b> {l s='last carts are displayed in this list' mod='froggycartorder'})
-                </div><br>
-                <label>{l s='Or enter the customer e-mail' mod='froggycartorder'}</label>
-                <div>
-                    <input type="text" name="customer_email" id="customer_email" />
-                    <input type="hidden" name="id_cart_manual" id="id_cart_manual" value="" />
-                    <div id="customer_carts_list"></div>
+        <div id="froggycartorder_admin" class="panel">
+            <form method="POST" action="" class="form-horizontal">
+
+                <h3>1. {l s='Select cart'}</h3>
+                <div class="form-group">
+                    <label class="control-label col-lg-3">{l s='Choose the cart' mod='froggycartorder'}</label>
+                    <div class="col-lg-9">
+                        <select name="id_cart" id="id_cart">
+                            <option value="0">{l s='- Choose between the 50 last carts -'}</option>
+                            {foreach from=$froggycartorder.last_carts item=c}
+                                <option value="{$c.id_cart}">#{$c.id_cart} - {$c.customer} - {$c.total}</option>
+                            {/foreach}
+                        </select> 
+                        <p class="help-block">({l s='Only the' mod='froggycartorder'} <b>{$froggycartorder.cart_limit}</b> {l s='last carts are displayed in this list' mod='froggycartorder'})</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-3">{l s='Or enter the customer e-mail' mod='froggycartorder'}</label>
+                    <div class="col-lg-9">
+                        <input type="text" name="customer_email" id="customer_email" />
+                        <input type="hidden" name="id_cart_manual" id="id_cart_manual" value="" />
+                        <div id="customer_carts_list"></div>
+                    </div>
+                </div>
+                <div id="payment_method_box">
+                    <h3>2. {l s='Select payment method'}</h3>
+                    <div class="form-group">
+                        <label class="control-label col-lg-3">{l s='Choose the payment method' mod='froggycartorder'}</label>
+                        <div class="col-lg-9">
+                            <select name="payment_method" id="payment_method">
+                                <option value="">{l s='- Choose the payment method -'}</option>
+                                {foreach from=$froggycartorder.available_payment_methods item=apm}
+                                    <option value="{$apm.payment}">{$apm.payment}</option>
+                                {/foreach}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-lg-3">{l s='Or write your payment method' mod='froggycartorder'}</label>
+                        <div class="col-lg-9"><input type="text" name="payment_method_manual" id="payment_method_manual" /></div>
+                    </div>
                 </div>
 
-                <br><br>
+                <div id="order_state_box">
+                    <h3>3. {l s='Select order state'}</h3>
+                    <div class="form-group">
+                        <label class="control-label col-lg-3">{l s='Choose the order status' mod='froggycartorder'}</label>
+                        <div class="col-lg-9">
+                            <select name="id_order_state" id="id_order_state">
+                                <option value="0">{l s='- Choose the order state -'}</option>
+                                {foreach from=$froggycartorder.order_state_list item=os}
+                                    <option value="{$os.id_order_state}">{$os.name}</option>
+                                {/foreach}
+                            </select>
+                        </div>
+                    </div>
+                </div>
 
-                <label>{l s='Choose the payment method' mod='froggycartorder'}</label>
-                <div>
-                    <select name="payment_method">
-                    {foreach from=$froggycartorder.available_payment_methods item=apm}
-                        <option value="{$apm.payment}">{$apm.payment}</option>
-                    {/foreach}
-                    </select>
-                </div><br>
-                <label>{l s='Or write your payment method' mod='froggycartorder'}</label>
-                <div><input type="text" name="payment_method_manual" /></div>
-
-                <br><br>
-
-                <label>{l s='Choose the order status' mod='froggycartorder'}</label>
-                <div>
-                    <select name="id_order_state">
-                    {foreach from=$froggycartorder.order_state_list item=os}
-                        <option value="{$os.id_order_state}">{$os.name}</option>
-                    {/foreach}
-                    </select>
-                </div><br>
-
-                <p align="center"><input type="submit" value="{l s='Convert' mod='froggycartorder'}" name="froggycartorder_form" class="button" /></p>
+                <div id="convert_cart_box">
+                    <h3>4. {l s='Convert cart to order'}</h3>
+                    <div class="form-group">
+                        <div class="col-lg-9 col-lg-offset-3"><input type="submit" value="{l s='Convert' mod='froggycartorder'}" name="froggycartorder_form" class="btn btn-default" /></div>
+                    </div>
+                </div>
             </form>
         </div>
     {/if}
