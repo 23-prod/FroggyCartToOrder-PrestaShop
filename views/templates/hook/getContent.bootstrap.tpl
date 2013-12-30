@@ -24,7 +24,7 @@
 #froggycartorder_admin .cart-selection span{margin-left:10px}
 </style>
 {/literal}
-<h2 align="center">{l s='Froggy Cart to Order Bootstrap' mod='froggycartorder'}</h2>
+<h2 align="center">{l s='Froggy Cart to Order' mod='froggycartorder'}</h2>
 
 <fieldset id="froggycartorder_fieldset">
 
