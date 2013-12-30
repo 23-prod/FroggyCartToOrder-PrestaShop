@@ -74,7 +74,8 @@ $(document).ready(function() {
     $('#order_state_box').hide();
     $('#convert_cart_box').hide();
 
-
+    // Hide customer cart result div
+    $('#customer_carts_list').hide();
 
     // Cart selection
     $('#id_cart').change(function() {
@@ -90,9 +91,16 @@ $(document).ready(function() {
 
         // If email is empty, empty carts list
         if (email_froggy_cart_order == '')
+        {
+            // Hide customer cart result div
+            $('#customer_carts_list').fadeOut();
             $('#customer_carts_list').html('');
+        }
         else
         {
+            // Show customer cart result div
+            $('#customer_carts_list').fadeIn();
+
             // Build ajax url
             var url = window.location.href+'&ajax_mode=true&get_cart_by_email='+email_froggy_cart_order;
             url = url.replace('index.php', 'ajax-tab.php');
