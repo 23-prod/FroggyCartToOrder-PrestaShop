@@ -32,9 +32,9 @@
 
     {if $froggycartorder.convert_result ne ''}
         {if $froggycartorder.convert_result eq 'OK'}
-            <div class="conf confirm">{l s='Cart was successfully converted' mod='froggycartorder'}</div>
+            <div class="module_confirmation conf confirm alert alert-success">{l s='Cart was successfully converted' mod='froggycartorder'}</div>
         {else}
-            <div class="alert error">{l s='An error occured, cart was not converted' mod='froggycartorder'}</div>
+            <div class="module_confirmation conf confirm alert alert-danger">{l s='An error occured, cart was not converted' mod='froggycartorder'}</div>
         {/if}
         <p align="center"><a href="{$froggycartorder.current_url}">{l s='Return' mod='froggycartorder'}</a></p>
     {else}
