@@ -88,5 +88,5 @@
     {/if}
 </fieldset>
 
+<link href="{$froggycartorder.module_dir}views/css/froggycartorder.css" rel="stylesheet" type="text/css" media="all" />
 <script type="text/javascript" src="{$froggycartorder.module_dir}views/js/froggycartorder.js"></script>
-<script type="text/javascript" src="{$froggycartorder.module_dir}views/css/froggycartorder.css"></script>
