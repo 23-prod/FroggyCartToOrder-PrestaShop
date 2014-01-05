@@ -16,14 +16,6 @@
 *  @author Froggy Commerce <contact@froggy-commerce.com>
 *  @copyright  2013-2014 Froggy Commerce
 *}
-{literal}
-<style type="text/css">
-#froggycartorder_admin #customer_carts_list{width:50%;padding:1%;margin-top:10px;border:1px solid #ccc;background-color:#fff;-moz-border-radius:3px;-webkit-border-radius:3px;border-radius:3px}
-#froggycartorder_admin .cart-selection{display:block;height:24px;line-height:24px;padding:3px 5% 3px 0;margin:2px 0}
-#froggycartorder_admin .cart-selection:hover{background:#FEFBE2 url(../modules/froggycartorder/views/img/fc-carttoorder-arrow-right.png) 98% center no-repeat;text-decoration: none}
-#froggycartorder_admin .cart-selection span{margin-left:10px}
-</style>
-{/literal}
 <h2 align="center">{l s='Froggy Cart to Order' mod='froggycartorder'}</h2>
 
 <fieldset id="froggycartorder_fieldset">
@@ -108,3 +100,4 @@
 </fieldset>
 
 <script type="text/javascript" src="{$froggycartorder.module_dir}views/js/froggycartorder.js"></script>
+<script type="text/javascript" src="{$froggycartorder.module_dir}views/css/froggycartorder.bootstrap.css"></script>
