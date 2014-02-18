@@ -1,0 +1,43 @@
+
+<?php
+
+global $_MODULE;
+$_MODULE = array();
+$_MODULE['<{froggycartorder}prestashop>froggycartorder_646dc5cd7806fe64671b7d0fc15b249e'] = 'Le permite convertir una cesta en encargo(mando)';
+$_MODULE['<{froggycartorder}prestashop>froggycartorder_13cdb11436e87821493432e3026b9472'] = 'Encargo  generado por el módulo \"Froggy Cart to Order\"""';
+$_MODULE['<{froggycartorder}prestashop>getcontent.bootstrap_abb3d48243a72f1cb69197ea4d09b7c8'] = 'Convertir una cesta en encargo';
+$_MODULE['<{froggycartorder}prestashop>getcontent.bootstrap_98e4a9588bd19603a8f9f1d8b64b29be'] = 'La cesta ha sido convertida en encargo con éxito';
+$_MODULE['<{froggycartorder}prestashop>getcontent.bootstrap_dfad315b6e1771650dc794f2fcc01f70'] = 'Un error sobrevino, la cesta no ha sido convertida en encargo';
+$_MODULE['<{froggycartorder}prestashop>getcontent.bootstrap_988fd738de9c6d177440c5dcf69e73ce'] = 'Devolución';
+$_MODULE['<{froggycartorder}prestashop>getcontent.bootstrap_b5016eacd80270cb7ec007df9f75f31f'] = 'Elegir una cesta';
+$_MODULE['<{froggycartorder}prestashop>getcontent.bootstrap_2dd73643193ebb35c29bb76d31e95d5f'] = 'Elija una cesta';
+$_MODULE['<{froggycartorder}prestashop>getcontent.bootstrap_7f6f2a1ccd63c0475c3e7f103bac8599'] = 'Elijar entre las 50 últimas cestas';
+$_MODULE['<{froggycartorder}prestashop>getcontent.bootstrap_4571a4e0fd95b0b5bebf17773c8bebb2'] = 'solamente los/las ';
+$_MODULE['<{froggycartorder}prestashop>getcontent.bootstrap_a5aaf4195707729ca5903d0f3da063d4'] = 'Últimas cestas son fijadas en esta lista';
+$_MODULE['<{froggycartorder}prestashop>getcontent.bootstrap_93fe48461c1ab5cdcbe7111f9d0caa73'] = 'O entre el correo electrónico de un cliente';
+$_MODULE['<{froggycartorder}prestashop>getcontent.bootstrap_7768d98226feb41e4efea8f71217318b'] = 'Elige un método de pago';
+$_MODULE['<{froggycartorder}prestashop>getcontent.bootstrap_ff6eb19c3cc7cbefb061b640cbd48a9f'] = 'Elige un método de pago existente';
+$_MODULE['<{froggycartorder}prestashop>getcontent.bootstrap_d90720d60e7636bad1b24f40dc517d36'] = 'Elijar el método de pago';
+$_MODULE['<{froggycartorder}prestashop>getcontent.bootstrap_52fc829c244ea8d4973f1ee981629a72'] = 'O escriba la redacción que usted quiere ver aparecer';
+$_MODULE['<{froggycartorder}prestashop>getcontent.bootstrap_c05f78b41067d6e3be938dab6611fd19'] = 'Escoger un estatuto de encargo';
+$_MODULE['<{froggycartorder}prestashop>getcontent.bootstrap_4def1cb80c46abba216031bc6accfaef'] = 'Escoger el estatuto del encargo';
+$_MODULE['<{froggycartorder}prestashop>getcontent.bootstrap_74b11127eefa45c8274a75c9989ae707'] = 'Elijar el estatuto del encargo';
+$_MODULE['<{froggycartorder}prestashop>getcontent.bootstrap_920f4a0c5c8b9a0747380cf7c7f0b3c5'] = 'convertir';
+$_MODULE['<{froggycartorder}prestashop>getcontent_abb3d48243a72f1cb69197ea4d09b7c8'] = 'Convertir una cesta en encargo';
+$_MODULE['<{froggycartorder}prestashop>getcontent_98e4a9588bd19603a8f9f1d8b64b29be'] = 'La cesta ha sido convertida en encargo con éxito';
+$_MODULE['<{froggycartorder}prestashop>getcontent_dfad315b6e1771650dc794f2fcc01f70'] = 'Un error sobrevino, la cesta no ha sido convertida en encargo';
+$_MODULE['<{froggycartorder}prestashop>getcontent_988fd738de9c6d177440c5dcf69e73ce'] = 'Devolución';
+$_MODULE['<{froggycartorder}prestashop>getcontent_b5016eacd80270cb7ec007df9f75f31f'] = 'Elegir una cesta';
+$_MODULE['<{froggycartorder}prestashop>getcontent_2dd73643193ebb35c29bb76d31e95d5f'] = 'Elija una cesta';
+$_MODULE['<{froggycartorder}prestashop>getcontent_7f6f2a1ccd63c0475c3e7f103bac8599'] = 'Elijar entre las 50 últimas cestas';
+$_MODULE['<{froggycartorder}prestashop>getcontent_4571a4e0fd95b0b5bebf17773c8bebb2'] = 'solamente los/las ';
+$_MODULE['<{froggycartorder}prestashop>getcontent_a5aaf4195707729ca5903d0f3da063d4'] = 'Últimas cestas son fijadas en esta lista';
+$_MODULE['<{froggycartorder}prestashop>getcontent_93fe48461c1ab5cdcbe7111f9d0caa73'] = 'O entre el correo electrónico de un cliente';
+$_MODULE['<{froggycartorder}prestashop>getcontent_7768d98226feb41e4efea8f71217318b'] = 'Elige un método de pago';
+$_MODULE['<{froggycartorder}prestashop>getcontent_ff6eb19c3cc7cbefb061b640cbd48a9f'] = 'Elige un método de pago existente';
+$_MODULE['<{froggycartorder}prestashop>getcontent_d90720d60e7636bad1b24f40dc517d36'] = 'Elijar el método de pago';
+$_MODULE['<{froggycartorder}prestashop>getcontent_ab3d7b7e5649815a7361468eddc558fc'] = 'O escriba la redacción que usted quiere ver aparecer';
+$_MODULE['<{froggycartorder}prestashop>getcontent_c05f78b41067d6e3be938dab6611fd19'] = 'Escoger un estatuto de encargo';
+$_MODULE['<{froggycartorder}prestashop>getcontent_4def1cb80c46abba216031bc6accfaef'] = 'Escoger el estatuto del encargo';
+$_MODULE['<{froggycartorder}prestashop>getcontent_74b11127eefa45c8274a75c9989ae707'] = 'Elijar el estatuto del encargo';
+$_MODULE['<{froggycartorder}prestashop>getcontent_920f4a0c5c8b9a0747380cf7c7f0b3c5'] = 'convertir';
