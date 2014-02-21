@@ -37,7 +37,7 @@
                 <label>{l s='Choose a cart' mod='froggycartorder'}</label>
                 <div class="margin-form">
                     <select name="id_cart" id="id_cart">
-                        <option value="0">{l s='- Choose between the 50 last carts -'}</option>
+                        <option value="0">{l s='- Choose between the 50 last carts -' mod='froggycartorder'}</option>
                         {foreach from=$froggycartorder.last_carts item=c}
                             <option value="{$c.id_cart}">#{$c.id_cart} - {$c.customer} - {$c.total}</option>
                         {/foreach}
