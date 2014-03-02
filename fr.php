@@ -4,7 +4,7 @@ global $_MODULE;
 $_MODULE = array();
 $_MODULE['<{froggycartorder}prestashop>froggycartorder_781cd5c33b8a2984a669a7bd3d97bc62'] = 'Froggy Cart to Order';
 $_MODULE['<{froggycartorder}prestashop>froggycartorder_646dc5cd7806fe64671b7d0fc15b249e'] = 'Vous permet de convertir un panier en commande';
-$_MODULE['<{froggycartorder}prestashop>froggycartorder_13cdb11436e87821493432e3026b9472'] = 'Commande générée par le module \"Froggy Cart to Order\"';
+$_MODULE['<{froggycartorder}prestashop>froggycartorder_13cdb11436e87821493432e3026b9472'] = 'Commande générée par le module Froggy Cart to Order';
 $_MODULE['<{froggycartorder}prestashop>getcontent.bootstrap_781cd5c33b8a2984a669a7bd3d97bc62'] = 'Froggy Cart to Order';
 $_MODULE['<{froggycartorder}prestashop>getcontent.bootstrap_abb3d48243a72f1cb69197ea4d09b7c8'] = 'Convertir un panier en commande';
 $_MODULE['<{froggycartorder}prestashop>getcontent.bootstrap_98e4a9588bd19603a8f9f1d8b64b29be'] = 'Le panier a été converti en commande avec succès';
