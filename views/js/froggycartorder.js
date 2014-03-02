@@ -119,6 +119,10 @@ $(document).ready(function() {
                     html += '<a class="cart-selection" href="#'+val.id_cart+'"><span>#'+val.id_cart+' - '+val.customer+' - '+val.total+'</span></a>';
                 });
 
+                // If html is empty
+                if (html == '')
+                    html = no_match_found_label;
+
                 // Display carts list
                 $('#customer_carts_list').html(html);
 

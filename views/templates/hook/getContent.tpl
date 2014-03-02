@@ -46,7 +46,7 @@
 
                 <label>{l s='Or enter the customer e-mail' mod='froggycartorder'}</label>
                 <div class="margin-form">
-                    <input type="text" name="customer_email" id="customer_email" />
+                    <input type="text" name="customer_email" id="customer_email" autocomplete="off" />
                     <input type="hidden" name="id_cart_manual" id="id_cart_manual" value="" />
                     <div id="customer_carts_list"></div>
                 </div>
@@ -89,4 +89,5 @@
 </fieldset>
 
 <link href="{$froggycartorder.module_dir}views/css/froggycartorder.css" rel="stylesheet" type="text/css" media="all" />
+<script>var no_match_found_label = '{l s='No match found' mod='froggycartorder'}';</script>
 <script type="text/javascript" src="{$froggycartorder.module_dir}views/js/froggycartorder.js"></script>

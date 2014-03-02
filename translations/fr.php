@@ -24,6 +24,7 @@ $_MODULE['<{froggycartorder}prestashop>getcontent.bootstrap_c05f78b41067d6e3be93
 $_MODULE['<{froggycartorder}prestashop>getcontent.bootstrap_4def1cb80c46abba216031bc6accfaef'] = 'Choisir le statut de la commande';
 $_MODULE['<{froggycartorder}prestashop>getcontent.bootstrap_74b11127eefa45c8274a75c9989ae707'] = 'Choississez le statut de la commande';
 $_MODULE['<{froggycartorder}prestashop>getcontent.bootstrap_920f4a0c5c8b9a0747380cf7c7f0b3c5'] = 'Convertir';
+$_MODULE['<{froggycartorder}prestashop>getcontent.bootstrap_5b7ba8ccca237283e41cc488902640dd'] = 'Aucune correspondance trouvée';
 $_MODULE['<{froggycartorder}prestashop>getcontent_781cd5c33b8a2984a669a7bd3d97bc62'] = 'Froggy Cart to Order';
 $_MODULE['<{froggycartorder}prestashop>getcontent_abb3d48243a72f1cb69197ea4d09b7c8'] = 'Convertir un panier en commande';
 $_MODULE['<{froggycartorder}prestashop>getcontent_98e4a9588bd19603a8f9f1d8b64b29be'] = 'Le panier a été converti en commande avec succès';
@@ -43,3 +44,4 @@ $_MODULE['<{froggycartorder}prestashop>getcontent_c05f78b41067d6e3be938dab6611fd
 $_MODULE['<{froggycartorder}prestashop>getcontent_4def1cb80c46abba216031bc6accfaef'] = 'Choisir le statut de la commande';
 $_MODULE['<{froggycartorder}prestashop>getcontent_74b11127eefa45c8274a75c9989ae707'] = 'Choississez le statut de la commande';
 $_MODULE['<{froggycartorder}prestashop>getcontent_920f4a0c5c8b9a0747380cf7c7f0b3c5'] = 'Convertir';
+$_MODULE['<{froggycartorder}prestashop>getcontent_5b7ba8ccca237283e41cc488902640dd'] = 'Aucune correspondance trouvée';

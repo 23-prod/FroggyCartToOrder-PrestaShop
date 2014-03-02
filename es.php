@@ -1,4 +1,3 @@
-
 <?php
 
 global $_MODULE;
@@ -23,6 +22,7 @@ $_MODULE['<{froggycartorder}prestashop>getcontent.bootstrap_c05f78b41067d6e3be93
 $_MODULE['<{froggycartorder}prestashop>getcontent.bootstrap_4def1cb80c46abba216031bc6accfaef'] = 'Escoger el estatuto del encargo';
 $_MODULE['<{froggycartorder}prestashop>getcontent.bootstrap_74b11127eefa45c8274a75c9989ae707'] = 'Elijar el estatuto del encargo';
 $_MODULE['<{froggycartorder}prestashop>getcontent.bootstrap_920f4a0c5c8b9a0747380cf7c7f0b3c5'] = 'convertir';
+$_MODULE['<{froggycartorder}prestashop>getcontent.bootstrap_5b7ba8ccca237283e41cc488902640dd'] = 'Ninguna correspondencia';
 $_MODULE['<{froggycartorder}prestashop>getcontent_abb3d48243a72f1cb69197ea4d09b7c8'] = 'Convertir una cesta en encargo';
 $_MODULE['<{froggycartorder}prestashop>getcontent_98e4a9588bd19603a8f9f1d8b64b29be'] = 'La cesta ha sido convertida en encargo con éxito';
 $_MODULE['<{froggycartorder}prestashop>getcontent_dfad315b6e1771650dc794f2fcc01f70'] = 'Un error sobrevino, la cesta no ha sido convertida en encargo';
@@ -41,3 +41,4 @@ $_MODULE['<{froggycartorder}prestashop>getcontent_c05f78b41067d6e3be938dab6611fd
 $_MODULE['<{froggycartorder}prestashop>getcontent_4def1cb80c46abba216031bc6accfaef'] = 'Escoger el estatuto del encargo';
 $_MODULE['<{froggycartorder}prestashop>getcontent_74b11127eefa45c8274a75c9989ae707'] = 'Elijar el estatuto del encargo';
 $_MODULE['<{froggycartorder}prestashop>getcontent_920f4a0c5c8b9a0747380cf7c7f0b3c5'] = 'convertir';
+$_MODULE['<{froggycartorder}prestashop>getcontent_5b7ba8ccca237283e41cc488902640dd'] = 'Ninguna correspondencia';
