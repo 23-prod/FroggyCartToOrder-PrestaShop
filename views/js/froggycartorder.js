@@ -38,7 +38,7 @@ function froggyCartOrderShowStep(box_id, field_to_check)
 function froggyCartOrderSelection()
 {
     // Reset style
-    $('#id_cart').prop('disabled', false);
+    $('#id_cart').removeAttr('disabled');
     $('.cart-selection').css('font-weight', 'normal');
 
     $('.cart-selection').unbind('click').bind('click', function() {
@@ -48,7 +48,7 @@ function froggyCartOrderSelection()
         value = value.replace('#', '');
 
         // Disable select
-        $('#id_cart').prop('disabled', 'disabled');
+        $('#id_cart').attr('disabled', 'disabled');
 
         // Set in bold cart selected
         $('.cart-selection').css('font-weight', 'normal');
@@ -103,31 +103,33 @@ $(document).ready(function() {
 
             // Build ajax url
             var url = window.location.href+'&ajax_mode=true&get_cart_by_email='+email_froggy_cart_order;
-            url = url.replace('index.php', 'ajax-tab.php');
+            if (froggycartorder_ps_version != '1.4')
+                url = url.replace('index.php', 'ajax-tab.php');
 
             // Make ajax request
             $.ajax({
                 url: url,
-            }).done(function(data) {
+                success: function(data) {
 
-                // Parse JSON
-                obj = $.parseJSON(data);
+                    // Parse JSON
+                    obj = $.parseJSON(data);
 
-                // Build carts list
-                var html = '';
-                $.each(obj, function(key, val) {
-                    html += '<a class="cart-selection" href="#'+val.id_cart+'"><span>#'+val.id_cart+' - '+val.customer+' - '+val.total+'</span></a>';
-                });
+                    // Build carts list
+                    var html = '';
+                    $.each(obj, function(key, val) {
+                        html += '<a class="cart-selection" href="#'+val.id_cart+'"><span>#'+val.id_cart+' - '+val.customer+' - '+val.total+'</span></a>';
+                    });
 
-                // If html is empty
-                if (html == '')
-                    html = no_match_found_label;
+                    // If html is empty
+                    if (html == '')
+                        html = froggycartorder_no_match_found_label;
 
-                // Display carts list
-                $('#customer_carts_list').html(html);
+                    // Display carts list
+                    $('#customer_carts_list').html(html);
 
-                // Bind cart click
-                froggyCartOrderSelection();
+                    // Bind cart click
+                    froggyCartOrderSelection();
+                }
             });
         }
 

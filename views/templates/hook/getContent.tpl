@@ -89,5 +89,8 @@
 </fieldset>
 
 <link href="{$froggycartorder.module_dir}views/css/froggycartorder.css" rel="stylesheet" type="text/css" media="all" />
-<script>var no_match_found_label = '{l s='No match found' mod='froggycartorder'}';</script>
+<script>
+    var froggycartorder_ps_version = '{$froggycartorder.ps_version}';
+    var froggycartorder_no_match_found_label = '{l s='No match found' mod='froggycartorder'}';
+</script>
 <script type="text/javascript" src="{$froggycartorder.module_dir}views/js/froggycartorder.js"></script>
