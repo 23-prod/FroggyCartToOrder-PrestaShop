@@ -122,6 +122,7 @@ class FroggyCartOrder extends FroggyModule
 		LEFT JOIN `'._DB_PREFIX_.'orders` o ON (o.`id_cart` = a.`id_cart`)
 		LEFT JOIN `'._DB_PREFIX_.'connections` co ON (a.`id_guest` = co.`id_guest` AND TIME_TO_SEC(TIMEDIFF(NOW(), co.`date_add`)) < 1800)
 		WHERE a.`id_customer` > 0 AND o.`id_order` IS NULL
+		AND a.`id_address_invoice` > 0
 		'.($email != '' ? 'AND c.`email` LIKE \'%'.pSQL($email).'%\'' : '').'
 		ORDER BY a.`date_add` DESC
 		LIMIT '.(int)$limit);
