@@ -56,7 +56,7 @@ class FroggyCartOrder extends FroggyModule
 		);
 
 		$this->smarty->assign($this->name, $assign);
-		return $this->fcdisplay(__FILE__, 'getcontent.tpl');
+		return $this->fcdisplay(__FILE__, 'getContent.tpl');
 	}
 
 	public function getCartByEmailAjax()
