@@ -52,7 +52,7 @@ class FroggyCartOrder extends FroggyModule
 			'order_state_list' => OrderState::getOrderStates($this->context->language->id),
 			'convert_result' => $convert_result,
 			'current_url' => Tools::htmlentitiesUTF8($_SERVER['REQUEST_URI']),
-			'ps_version' => substr(_PS_VERSION_, 0, 3),
+			'ps_version' => Tools::substr(_PS_VERSION_, 0, 3),
 		);
 
 		$this->smarty->assign($this->name, $assign);
