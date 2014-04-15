@@ -1,22 +1,23 @@
 <?php
-/*
-* 2013-2014 Froggy Commerce
-*
-* NOTICE OF LICENSE
-*
-* You should have received a licence with this module.
-* If you didn't buy this module on Froggy-Commerce.com, ThemeForest.net
-* or Addons.PrestaShop.com, please contact us immediately : contact@froggy-commerce.com
-*
-* DISCLAIMER
-*
-* Do not edit or add to this file if you wish to benefit the updates
-* for newer PrestaShop versions in the future. If you wish to customize PrestaShop for your
-* needs please refer to http://www.prestashop.com for more information.
-*
-*  @author Froggy Commerce <contact@froggy-commerce.com>
-*  @copyright  2013-2014 Froggy Commerce
-*/
+/**
+ * 2013-2014 Froggy Commerce
+ *
+ * NOTICE OF LICENSE
+ *
+ * You should have received a licence with this module.
+ * If you didn't buy this module on Froggy-Commerce.com, ThemeForest.net
+ * or Addons.PrestaShop.com, please contact us immediately : contact@froggy-commerce.com
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to benefit the updates
+ * for newer PrestaShop versions in the future. If you wish to customize PrestaShop for your
+ * needs please refer to http://www.prestashop.com for more information.
+ *
+ * @author    Froggy Commerce <contact@froggy-commerce.com>
+ * @copyright 2013-2014 Froggy Commerce
+ * @license   Unauthorized copying of this file, via any medium is strictly prohibited
+ */
 
 // Security
 defined('_PS_VERSION_') || require dirname(__FILE__).'/index.php';
@@ -37,6 +38,7 @@ class FroggyCartOrder extends FroggyModule
 		$this->display_cart_limit = 50;
 		$this->displayName = $this->l('Froggy Cart to Order');
 		$this->description = $this->l('Allow you to convert a cart into order');
+		$this->module_key = '13dc91b72a0de608f8befcdf22dd460e';
 	}
 
 	public function getContent()
