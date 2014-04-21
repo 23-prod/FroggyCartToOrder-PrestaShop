@@ -24,7 +24,7 @@ defined('_PS_VERSION_') || require dirname(__FILE__).'/index.php';
 
 // Include Froggy Library
 if (!class_exists('FroggyModule', false)) require_once _PS_MODULE_DIR_.'/froggycartorder/froggy/FroggyModule.php';
-require_once __DIR__.'/classes/FroggyCartOrderObject.php';
+require_once dirname(__FILE__).'/classes/FroggyCartOrderObject.php';
 
 class FroggyCartOrder extends FroggyModule
 {
