@@ -1,6 +1,6 @@
 {
-	"tab" : "front_office_features",
-	"version": "1.0.1",
+	"tab" : "administration",
+	"version": "1.0.2",
 	"need_instance": 0,
 
     "sql" : {

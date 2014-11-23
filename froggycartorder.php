@@ -33,6 +33,11 @@ class FroggyCartOrder extends FroggyModule
 	 */
 	public function __construct()
 	{
+		$this->name = 'administration';
+		$this->author = 'Froggy Commerce';
+		$this->version = '1.0.2';
+		$this->tab = 'administration';
+
 		parent::__construct();
 
 		$this->display_cart_limit = 50;
