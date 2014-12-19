@@ -2,7 +2,7 @@
         <module>
             <name>froggycartorder</name>
             <displayName><![CDATA[Froggy Cart to Order]]></displayName>
-            <version><![CDATA[1.0.2]]></version>
+            <version><![CDATA[1.0.3]]></version>
             <description><![CDATA[Allow you to convert a cart into order]]></description>
             <author><![CDATA[Froggy Commerce]]></author>
             <tab><![CDATA[administration]]></tab>

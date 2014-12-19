@@ -66,20 +66,20 @@ class FroggyCartOrderObject extends ObjectModel
 
 	/*** Retrocompatibility 1.4 ***/
 
-	protected 	$fieldsRequired = array('id_order', 'id_employee', 'id_customer');
-	protected 	$fieldsSize = array('id_order' => 32, 'id_employee' => 32, 'id_customer' => 32);
-	protected 	$fieldsValidate = array('id_order' => 'isUnsignedInt');
+	protected $fieldsRequired = array('id_order', 'id_employee', 'id_customer');
+	protected $fieldsSize = array('id_order' => 32, 'id_employee' => 32, 'id_customer' => 32);
+	protected $fieldsValidate = array('id_order' => 'isUnsignedInt');
 
-	protected 	$table = 'fc_co_order';
-	protected 	$identifier = 'id_fc_co_order';
+	protected $table = 'fc_co_order';
+	protected $identifier = 'id_fc_co_order';
 
 	public	function getFields()
 	{
 		if (version_compare(_PS_VERSION_, '1.5') >= 0)
 			return parent::getFields();
 
+		$fields = array();
 		parent::validateFields();
-
 		$fields['id_order'] = (int)$this->id_order;
 		$fields['id_employee'] = (int)$this->id_employee;
 		$fields['id_customer'] = (int)$this->id_customer;

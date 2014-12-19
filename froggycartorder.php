@@ -19,10 +19,14 @@
  * @license   Unauthorized copying of this file, via any medium is strictly prohibited
  */
 
-// Security
+/*
+ * Security
+ */
 defined('_PS_VERSION_') || require dirname(__FILE__).'/index.php';
 
-// Include Froggy Library
+/*
+ * Include Froggy Library
+ */
 if (!class_exists('FroggyModule', false)) require_once _PS_MODULE_DIR_.'/froggycartorder/froggy/FroggyModule.php';
 require_once dirname(__FILE__).'/classes/FroggyCartOrderObject.php';
 
@@ -33,7 +37,7 @@ class FroggyCartOrder extends FroggyModule
 	 */
 	public function __construct()
 	{
-		$this->name = 'administration';
+		$this->name = 'froggycartorder';
 		$this->author = 'Froggy Commerce';
 		$this->version = '1.0.2';
 		$this->tab = 'administration';
@@ -73,7 +77,7 @@ class FroggyCartOrder extends FroggyModule
 
 		ob_end_clean();
 		$carts_list = $this->getLastCartsNotAssociatedToOrder($this->display_cart_limit, Tools::getValue('get_cart_by_email'));
-		die(json_encode($carts_list));
+		die(Tools::jsonEncode($carts_list));
 	}
 
 	public function convertCart()
@@ -153,6 +157,8 @@ class FroggyCartOrder extends FroggyModule
 
 class FroggyCartOrderPaymentModule extends PaymentModule
 {
-	// Fix for validateOrder
+	/*
+	 * Fix for validateOrder
+	 */
 	public $active = 1;
 }

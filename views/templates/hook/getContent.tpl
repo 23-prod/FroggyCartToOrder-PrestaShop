@@ -23,7 +23,7 @@
 
 <fieldset id="froggycartorder_fieldset">
 
-    <legend><img src="{$froggycartorder.module_dir}logo.png" alt="" width="16" />{l s='Convert cart to order' mod='froggycartorder'}</legend>
+    <legend><img src="{$froggycartorder.module_dir|escape:'html':'UTF-8'}logo.png" alt="" width="16" />{l s='Convert cart to order' mod='froggycartorder'}</legend>
 
     {if $froggycartorder.convert_result ne ''}
         {if $froggycartorder.convert_result eq 'OK'}
@@ -31,7 +31,7 @@
         {else}
             <div class="alert error">{l s='An error occured, cart was not converted' mod='froggycartorder'}</div>
         {/if}
-        <p align="center"><a href="{$froggycartorder.current_url}">{l s='Return' mod='froggycartorder'}</a></p>
+        <p align="center"><a href="{$froggycartorder.current_url|escape:'html':'UTF-8'}">{l s='Return' mod='froggycartorder'}</a></p>
     {else}
         <div id="froggycartorder_admin">
             <form method="POST" action="">
@@ -42,9 +42,9 @@
                     <select name="id_cart" id="id_cart">
                         <option value="0">{l s='- Choose between the 50 last carts -' mod='froggycartorder'}</option>
                         {foreach from=$froggycartorder.last_carts item=c}
-                            <option value="{$c.id_cart}">#{$c.id_cart} - {$c.customer} - {$c.total}</option>
+                            <option value="{$c.id_cart|intval}">#{$c.id_cart|intval} - {$c.customer|escape:'html':'UTF-8'} - {$c.total|escape:'html':'UTF-8'}</option>
                         {/foreach}
-                    </select> ({l s='Only the' mod='froggycartorder'} <b>{$froggycartorder.cart_limit}</b> {l s='last carts are displayed in this list' mod='froggycartorder'})
+                    </select> ({l s='Only the' mod='froggycartorder'} <b>{$froggycartorder.cart_limit|intval}</b> {l s='last carts are displayed in this list' mod='froggycartorder'})
                 </div>
 
                 <label>{l s='Or enter the customer e-mail' mod='froggycartorder'}</label>
@@ -61,7 +61,7 @@
                         <select name="payment_method" id="payment_method">
                             <option value="">{l s='- Choose the payment method -' mod='froggycartorder'}</option>
                             {foreach from=$froggycartorder.available_payment_methods item=apm}
-                                <option value="{$apm.payment}">{$apm.payment}</option>
+                                <option value="{$apm.payment|escape:'html':'UTF-8'}">{$apm.payment|escape:'html':'UTF-8'}</option>
                             {/foreach}
                         </select>
                     </div><br>
@@ -76,7 +76,7 @@
                         <select name="id_order_state" id="id_order_state">
                             <option value="0">{l s='- Choose the order state -' mod='froggycartorder'}</option>
                             {foreach from=$froggycartorder.order_state_list item=os}
-                                <option value="{$os.id_order_state}">{$os.name}</option>
+                                <option value="{$os.id_order_state|intval}">{$os.name|escape:'html':'UTF-8'}</option>
                             {/foreach}
                         </select>
                     </div>
@@ -91,9 +91,9 @@
     {/if}
 </fieldset>
 
-<link href="{$froggycartorder.module_dir}views/css/froggycartorder.css" rel="stylesheet" type="text/css" media="all" />
+<link href="{$froggycartorder.module_dir|escape:'html':'UTF-8'}views/css/froggycartorder.css" rel="stylesheet" type="text/css" media="all" />
 <script>
-    var froggycartorder_ps_version = '{$froggycartorder.ps_version}';
+    var froggycartorder_ps_version = '{$froggycartorder.ps_version|escape:'html':'UTF-8'}';
     var froggycartorder_no_match_found_label = '{l s='No match found' mod='froggycartorder'}';
 </script>
-<script type="text/javascript" src="{$froggycartorder.module_dir}views/js/froggycartorder.js"></script>
+<script type="text/javascript" src="{$froggycartorder.module_dir|escape:'html':'UTF-8'}views/js/froggycartorder.js"></script>
