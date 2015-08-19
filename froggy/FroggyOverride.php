@@ -19,6 +19,11 @@
  * @license   Unauthorized copying of this file, via any medium is strictly prohibited
  */
 
+/*
+ * Security
+ */
+defined('_PS_VERSION_') || require dirname(__FILE__).'/index.php';
+
 class FroggyOverride
 {
     public $name;
@@ -51,26 +56,28 @@ class FroggyOverride
      */
     public function installOverrides()
     {
-        if (!is_dir($this->getLocalPath().'override'))
+        if (!is_dir($this->getLocalPath().'override')) {
             return true;
+        }
 
         // Get files list to override and check if we there will be a problem with one of the override
         $overrides = FroggyOverride::scandir($this->getLocalPath().'override', 'php', '', true);
-        foreach ($overrides as $ko => $vo)
-        {
+        foreach ($overrides as $ko => $vo) {
             $core_classpath = $this->getClassPath(basename($vo, '.php'), true);
             $override_classpath = $this->getClassPath(basename($vo, '.php'), false);
-            if (empty($core_classpath))
+            if (empty($core_classpath)) {
                 unset($overrides[$ko]);
-            else if (file_exists($override_classpath))
+            } else if (file_exists($override_classpath)) {
                 return false;
-            else if (!is_writable(dirname($override_classpath)))
+            } else if (!is_writable(dirname($override_classpath))) {
                 return false;
+            }
         }
 
         // Add overrides
-        foreach ($overrides as $file)
+        foreach ($overrides as $file) {
             $this->addOverride($file);
+        }
 
         return true;
     }
@@ -82,21 +89,23 @@ class FroggyOverride
      */
     public function uninstallOverrides()
     {
-        if (!is_dir($this->getLocalPath().'override'))
+        if (!is_dir($this->getLocalPath().'override')) {
             return true;
+        }
 
         // Get files list to override and check if we there will be a problem with one of the override
         $overrides = FroggyOverride::scandir($this->getLocalPath().'override', 'php', '', true);
-        foreach ($overrides as $ko => $vo)
-        {
+        foreach ($overrides as $ko => $vo) {
             $core_classpath = $this->getClassPath(basename($vo, '.php'), true);
-            if (empty($core_classpath))
+            if (empty($core_classpath)) {
                 unset($overrides[$ko]);
+            }
         }
 
         // Add overrides
-        foreach ($overrides as $file)
+        foreach ($overrides as $file) {
             $this->removeOverride($file);
+        }
 
         return true;
     }
@@ -112,11 +121,13 @@ class FroggyOverride
         $ps_version = str_replace('.', '', Tools::substr(_PS_VERSION_, 0, 3));
         $override_src = $this->getLocalPath().'override'.DIRECTORY_SEPARATOR.$file;
         $override_src_version = str_replace('.php', '.'.$ps_version.'.php', $override_src);
-        if (file_exists($override_src_version))
+        if (file_exists($override_src_version)) {
             $override_src = $override_src_version;
+        }
         $override_dest = _PS_ROOT_DIR_.DIRECTORY_SEPARATOR.'override'.DIRECTORY_SEPARATOR.'classes'.DIRECTORY_SEPARATOR.basename($file, '.php').'.php';
-        if (strpos($file, 'controllers/'))
+        if (strpos($file, 'controllers/')) {
             $override_dest = _PS_ROOT_DIR_.DIRECTORY_SEPARATOR.'override'.DIRECTORY_SEPARATOR.'controllers'.DIRECTORY_SEPARATOR.basename($file, '.php').'.php';
+        }
         copy($override_src, $override_dest);
         return true;
     }
@@ -132,16 +143,19 @@ class FroggyOverride
         $ps_version = str_replace('.', '', Tools::substr(_PS_VERSION_, 0, 3));
         $override_src = $this->getLocalPath().'override'.DIRECTORY_SEPARATOR.$file;
         $override_src_version = str_replace('.php', '.'.$ps_version.'.php', $override_src);
-        if (file_exists($override_src_version))
+        if (file_exists($override_src_version)) {
             $override_src = $override_src_version;
+        }
         $override_dest = _PS_ROOT_DIR_.DIRECTORY_SEPARATOR.'override'.DIRECTORY_SEPARATOR.'classes'.DIRECTORY_SEPARATOR.basename($file, '.php').'.php';
-        if (strpos($file, 'controllers/'))
+        if (strpos($file, 'controllers/')) {
             $override_dest = _PS_ROOT_DIR_.DIRECTORY_SEPARATOR.'override'.DIRECTORY_SEPARATOR.'controllers'.DIRECTORY_SEPARATOR.basename($file, '.php').'.php';
+        }
 
         $override_src_base64 = md5(Tools::file_get_contents($override_src));
         $override_dest_base64 = md5(Tools::file_get_contents($override_dest));
-        if ($override_src_base64 == $override_dest_base64)
+        if ($override_src_base64 == $override_dest_base64) {
             @unlink($override_dest);
+        }
 
         return true;
     }
@@ -158,22 +172,24 @@ class FroggyOverride
 
     public function getClassPath($classname, $core = true)
     {
-        if ($classname == 'index')
+        if ($classname == 'index') {
             return '';
-
-        if ($core == true)
-        {
-            if (file_exists(dirname(__FILE__).'/../../../classes/'.$classname.'.php'))
-                return dirname(__FILE__).'/../../../classes/'.$classname.'.php';
-            if (file_exists(dirname(__FILE__).'/../../../controllers/'.$classname.'.php'))
-                return dirname(__FILE__).'/../../../controllers/'.$classname.'.php';
         }
-        else
-        {
-            if (file_exists(dirname(__FILE__).'/../../../classes/'.$classname.'.php'))
+
+        if ($core == true) {
+            if (file_exists(dirname(__FILE__).'/../../../classes/'.$classname.'.php')) {
+                return dirname(__FILE__).'/../../../classes/'.$classname.'.php';
+            }
+            if (file_exists(dirname(__FILE__).'/../../../controllers/'.$classname.'.php')) {
+                return dirname(__FILE__).'/../../../controllers/'.$classname.'.php';
+            }
+        } else {
+            if (file_exists(dirname(__FILE__).'/../../../classes/'.$classname.'.php')) {
                 return dirname(__FILE__).'/../../../override/classes/'.$classname.'.php';
-            if (file_exists(dirname(__FILE__).'/../../../controllers/'.$classname.'.php'))
+            }
+            if (file_exists(dirname(__FILE__).'/../../../controllers/'.$classname.'.php')) {
                 return dirname(__FILE__).'/../../../override/controllers/'.$classname.'.php';
+            }
         }
         return '';
     }
@@ -191,25 +207,29 @@ class FroggyOverride
         $path = rtrim(rtrim($path, '\\'), '/').'/';
         $real_path = rtrim(rtrim($path.$dir, '\\'), '/').'/';
         $files = scandir($real_path);
-        if (!$files)
+        if (!$files) {
             return array();
+        }
 
         $filtered_files = array();
 
         $real_ext = false;
-        if (!empty($ext))
+        if (!empty($ext)) {
             $real_ext = '.'.$ext;
+        }
         $real_ext_length = Tools::strlen($real_ext);
 
         $subdir = ($dir) ? $dir.'/' : '';
-        foreach ($files as $file)
-        {
-            if (!$real_ext || (strpos($file, $real_ext) && strpos($file, $real_ext) == (Tools::strlen($file) - $real_ext_length)))
+        foreach ($files as $file) {
+            if (!$real_ext || (strpos($file, $real_ext) && strpos($file, $real_ext) == (Tools::strlen($file) - $real_ext_length))) {
                 $filtered_files[] = $subdir.$file;
+            }
 
-            if ($recursive && $file[0] != '.' && is_dir($real_path.$file))
-                foreach (FroggyOverride::scandir($path, $ext, $subdir.$file, $recursive) as $subfile)
+            if ($recursive && $file[0] != '.' && is_dir($real_path.$file)) {
+                foreach (FroggyOverride::scandir($path, $ext, $subdir.$file, $recursive) as $subfile) {
                     $filtered_files[] = $subfile;
+                }
+            }
         }
         return $filtered_files;
     }

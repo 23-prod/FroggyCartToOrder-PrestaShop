@@ -22,8 +22,7 @@
 /*
  * Security
  */
-if (!defined('_PS_VERSION_'))
-    exit;
+defined('_PS_VERSION_') || require dirname(__FILE__).'/index.php';
 
 class FroggyHelperFormList
 {
@@ -54,14 +53,19 @@ class FroggyHelperFormList
 
     public function prefillFormFields()
     {
-        if (isset($this->configuration['form']))
-            foreach ($this->configuration['form'] as $key_section => $sections)
-                foreach ($sections['fields'] as $key_field => $field)
-                    if (!isset($field['prefill']))
+        if (isset($this->configuration['form'])) {
+            foreach ($this->configuration['form'] as $key_section => $sections) {
+                foreach ($sections['fields'] as $key_field => $field) {
+                    if (!isset($field['prefill'])) {
                         $this->configuration['form'][$key_section]['fields'][$key_field]['value'] = Tools::getValue($field['name'], (isset($field['default_value']) ? $field['default_value'] : ''));
+                    }
+                }
+            }
+        }
 
-        if (isset($this->configuration['list']['data_request']))
+        if (isset($this->configuration['list']['data_request'])) {
             $this->configuration['list']['data'] = Db::getInstance()->executeS($this->configuration['list']['data_request']);
+        }
     }
 
     public function render()

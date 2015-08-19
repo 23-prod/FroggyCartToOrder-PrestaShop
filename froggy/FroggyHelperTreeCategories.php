@@ -22,9 +22,7 @@
 /*
  * Security
  */
-if (!defined('_PS_VERSION_')) {
-    exit;
-}
+defined('_PS_VERSION_') || require dirname(__FILE__).'/index.php';
 
 class FroggyHelperTreeCategories
 {
@@ -168,12 +166,11 @@ class FroggyHelperTreeCategories
             $groups = (array)$groups;
         }
 
-        $cache_id = 'Category::getNestedCategories_'.md5((int)$root_category.(int)$id_lang.(int)$active.(int)$active
-            .(isset($groups) && Group::isFeatureActive() ? implode('', $groups) : ''));
+        $cache_id = 'Category::getNestedCategories_'.md5((int)$root_category.(int)$id_lang.(int)$active.(int)$active.(isset($groups) && Group::isFeatureActive() ? implode('', $groups) : ''));
 
         if (!Cache::isStored($cache_id)) {
-            $result = Db::getInstance()->executeS('
-                SELECT c.*, cl.*
+            $result = Db::getInstance()->executeS(
+                'SELECT c.*, cl.*
                 FROM `'._DB_PREFIX_.'category` c
                 '.($use_shop_restriction ? Shop::addSqlAssociation('category', 'c') : '').'
                 LEFT JOIN `'._DB_PREFIX_.'category_lang` cl ON c.`id_category` = cl.`id_category`'.Shop::addSqlRestrictionOnLang('cl').'
