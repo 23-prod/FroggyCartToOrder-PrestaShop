@@ -19,6 +19,6 @@
  */
 
  Documentation available here:
- FR: http://www.froggy-commerce.com/docs/froggy-cart-to-order/fr
- EN: http://www.froggy-commerce.com/docs/froggy-cart-to-order/en
- ES: http://www.froggy-commerce.com/docs/froggy-cart-to-order/es
+ FR: http://www.froggy-commerce.com/docs/froggy-cart-to-order/fr?download
+ EN: http://www.froggy-commerce.com/docs/froggy-cart-to-order/en?download
+ ES: http://www.froggy-commerce.com/docs/froggy-cart-to-order/es?download
