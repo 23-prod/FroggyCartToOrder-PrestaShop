@@ -102,9 +102,9 @@
     {/if}
 </fieldset>
 
-<link href="{$froggycartorder.module_dir|escape:'html':'UTF-8'}css/froggycartorder.bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="{$froggycartorder.module_dir|escape:'html':'UTF-8'}views/css/froggycartorder.bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <script>
     var froggycartorder_ps_version = '{$froggycartorder.ps_version|escape:'html':'UTF-8'}';
     var froggycartorder_no_match_found_label = '{l s='No match found' mod='froggycartorder'}';
 </script>
-<script type="text/javascript" src="{$froggycartorder.module_dir|escape:'html':'UTF-8'}js/froggycartorder.js"></script>
+<script type="text/javascript" src="{$froggycartorder.module_dir|escape:'html':'UTF-8'}views/js/froggycartorder.js"></script>
