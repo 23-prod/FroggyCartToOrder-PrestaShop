@@ -22,4 +22,3 @@
  FR: http://www.froggy-commerce.com/docs/froggy-cart-to-order/fr
  EN: http://www.froggy-commerce.com/docs/froggy-cart-to-order/en
  ES: http://www.froggy-commerce.com/docs/froggy-cart-to-order/es
- 
