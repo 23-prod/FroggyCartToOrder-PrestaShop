@@ -28,14 +28,14 @@
  * Get out if the context is already defined
  */
 if (!in_array('FroggyContext', get_declared_classes()))
-	require_once(dirname(__FILE__).'/FroggyContext.php');
+    require_once(dirname(__FILE__).'/FroggyContext.php');
 
 /**
  * If not under an object we don't have to set the context
  */
 $var = 'this';
 if (!isset($$var))
-	return;
+    return;
 
 /**
  * Set variables
