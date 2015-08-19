@@ -19,6 +19,11 @@
  * @license   Unauthorized copying of this file, via any medium is strictly prohibited
  */
 
+/*
+ * Security
+ */
+defined('_PS_VERSION_') || require dirname(__FILE__).'/index.php';
+
 class FroggyCartOrderObject extends ObjectModel
 {
     public $id;
