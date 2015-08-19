@@ -31,7 +31,7 @@
         {else}
             <div class="alert error">{l s='An error occured, cart was not converted' mod='froggycartorder'}</div>
         {/if}
-        <p align="center"><a href="{$froggycartorder.current_url|escape:'html':'UTF-8'}">{l s='Return' mod='froggycartorder'}</a></p>
+        <p align="center"><a href="{FroggyDisplaySafeHtml s=$froggycartorder.current_url}">{l s='Return' mod='froggycartorder'}</a></p>
     {else}
         <div id="froggycartorder_admin">
             <form method="POST" action="">
