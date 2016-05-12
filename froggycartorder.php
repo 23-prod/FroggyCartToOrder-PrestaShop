@@ -42,7 +42,7 @@ class FroggyCartOrder extends FroggyModule
     {
         $this->name = 'froggycartorder';
         $this->author = 'Froggy Commerce';
-        $this->version = '1.0.4';
+        $this->version = '1.0.5';
         $this->tab = 'administration';
 
         parent::__construct();
