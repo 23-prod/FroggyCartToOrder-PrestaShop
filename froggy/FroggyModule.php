@@ -506,7 +506,7 @@ class FroggyModule extends Module
         $categories = array();
         $categories_selected = Configuration::get($config_name);
         if (!empty($categories_selected)) {
-            foreach (Tools::jsonDecode($categories_selected, true) as $key => $category) {
+            foreach (Tools::jsonDecode($categories_selected, true) as $category) {
                 $categories[] = $category;
             }
         }
